@@ -33,6 +33,9 @@ public class Order {
     private OrderStatus orderStatus;
 
     public void setMember(Member member) {
+        if (this.member != null) {
+            this.member.getOrders().remove(this);
+        }
         this.member = member;
         member.getOrders().add(this);
     }
