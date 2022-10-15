@@ -1,11 +1,13 @@
 package com.jpabook.jpashop.domain;
 
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
 
 @Entity
 @ToString
+@NoArgsConstructor
 public class Delivery {
 
     @Id @GeneratedValue
@@ -20,6 +22,11 @@ public class Delivery {
 
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
+
+    public Delivery(Address address) {
+        this.address = address;
+        this.status = DeliveryStatus.READY;
+    }
 
     public Long getId() {
         return id;
