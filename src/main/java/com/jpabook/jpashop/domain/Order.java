@@ -57,8 +57,8 @@ public class Order {
 
     public int getTotalPrice() {
         int totalPrice = 0;
-        for (OrderItem orderitem : orderItems) {
-            totalPrice += orderitem.getOrderPrice();
+        for (OrderItem orderItem : orderItems) {
+            totalPrice += orderItem.getTotalPrice();
         }
         return totalPrice;
     }

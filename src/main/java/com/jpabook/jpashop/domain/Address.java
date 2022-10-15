@@ -1,11 +1,15 @@
 package com.jpabook.jpashop.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.Embeddable;
 
 @Embeddable
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class Address {
 
     private String city;
