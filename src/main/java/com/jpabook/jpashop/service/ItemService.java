@@ -25,7 +25,7 @@ public class ItemService {
     }
 
     public Item findOne(Long id) {
-        return itemRepository.findOne(id);
+        return itemRepository.findById(id).orElseThrow(NullPointerException::new);
     }
 
 }

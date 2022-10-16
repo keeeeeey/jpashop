@@ -29,7 +29,7 @@ public class MemberService {
 
     // 단건 조회
     public Member findOne(Long memberId) {
-        return memberRepository.findOne(memberId);
+        return memberRepository.findById(memberId).orElseThrow(NullPointerException::new);
     }
 
     // 중복 회원 검증
