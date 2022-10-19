@@ -33,7 +33,7 @@ class ItemServiceTest {
         Long id = itemService.saveItem(movie);
 
         // Then
-        assertEquals(movie, itemRepository.findOne(id));
+        assertEquals(movie, itemRepository.findById(id));
 
     }
 
