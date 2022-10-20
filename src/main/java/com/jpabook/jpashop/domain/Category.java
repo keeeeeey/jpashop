@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@ToString
 public class Category {
 
     @Id @GeneratedValue

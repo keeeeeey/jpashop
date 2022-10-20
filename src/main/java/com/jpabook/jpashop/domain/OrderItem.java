@@ -6,7 +6,6 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@ToString
 public class OrderItem {
 
     @Id @GeneratedValue

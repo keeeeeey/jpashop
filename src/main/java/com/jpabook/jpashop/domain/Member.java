@@ -1,16 +1,18 @@
 package com.jpabook.jpashop.domain;
 
 import lombok.ToString;
+import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@ToString
 public class Member {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MEMBER_ID")
     private Long id;
 
@@ -19,7 +21,9 @@ public class Member {
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "member")
+//    @BatchSize(size = 3)
+    @Fetch(FetchMode.SUBSELECT)
+    @OneToMany(mappedBy = "member", fetch = FetchType.EAGER)
     private List<Order> orders = new ArrayList<>();
 
     public Long getId() {

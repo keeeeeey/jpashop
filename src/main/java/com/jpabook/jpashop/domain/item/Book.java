@@ -6,7 +6,6 @@ import javax.persistence.*;
 
 @Entity
 @DiscriminatorValue("B")
-@ToString
 public class Book extends Item {
 
     private String author;

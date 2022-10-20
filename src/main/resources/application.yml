@@ -9,9 +9,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
-    properties:
-      hibernate:
-        format_sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
 #        default_batch_fetch_size: 1000
 #    show-sql: true
     open-in-view: false
