@@ -4,6 +4,7 @@ import com.jpabook.jpashop.domain.Member;
 import com.jpabook.jpashop.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -23,11 +24,13 @@ public class MemberService {
     }
 
     // 전체 회원 조회
+    @Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
     public List<Member> findMembers() {
         return memberRepository.findAll();
     }
 
     // 단건 조회
+    @Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
     public Member findOne(Long memberId) {
         return memberRepository.findById(memberId).orElseThrow(NullPointerException::new);
     }

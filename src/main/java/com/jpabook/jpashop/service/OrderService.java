@@ -7,6 +7,7 @@ import com.jpabook.jpashop.repository.MemberRepository;
 import com.jpabook.jpashop.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -39,6 +40,7 @@ public class OrderService {
         order.cancel();
     }
 
+    @Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
     public List<Order> findOrders(OrderSearch orderSearch) {
         return orderRepository.findAll(orderSearch.toSpecification());
     }
